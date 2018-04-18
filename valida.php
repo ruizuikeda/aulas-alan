@@ -3,34 +3,40 @@ session_start();
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$login .= $username . $password;
 $falso = 1;
+$_SESSION['logado_nome'] =  $username ;
+
+//echo $login;
+
+switch($login){
+
+        case 'ikeda123' :
+        echo $username ;  echo '<br>';
+        echo 'cpf : 123456789';
+
+        case 'alan456' :
+        echo $username ;  echo '<br>';
+        echo 'cpf : 456789123';
+
+        case 'helder789' :
+        echo $username ;  echo '<br>';
+        echo 'cpf : 789123456';
+
+        case 'renan000' :
+        echo $username ;  echo '<br>';
+        echo 'cpf : 000000000';
+
+        header('location:home.php?');
+        break;
 
 
+        default :
 
-if ($username == 'ikeda' && $password == '123'){
-
-    $falso =0;
-
-    $_SESSION['logado_nome'] = 'ikeda';
-    $_SESSION['logado_cpf'] = '366.582.098-71';
-
-    header('location:home.php');
-
-} else if ($username == 'alan' && $password == '321'){
-    $falso =0;
-
-    $_SESSION['logado_nome'] = 'alan';
-    $_SESSION['logado_cpf'] = '123.123.123-32';
-
-    header('location:home.php');
-} else {
-
-    $falso = 1;
-    header('location:index.php?falso='. $falso);
+        header('location:index.php?falso='. $falso);
+        break;
 
 }
-
-
 
 exit;
 ?>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $nome = $_SESSION['logado_nome'];
+
 ?>
 
 
