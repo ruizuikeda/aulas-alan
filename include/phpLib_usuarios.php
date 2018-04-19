@@ -36,4 +36,16 @@ function phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, 
     return mysql_insert_id();
 }
 
+
+function phpLibUsuarios_update_usuarios_inativar($idUsuario){
+    $sql = "
+        UPDATE usuarios
+        SET status = 0
+        WHERE idUsuario = '$idUsuario';
+    ";
+    $result = mysql_query($sql);
+    if(!$result) return false;
+    return true;
+}
+
 ?>
