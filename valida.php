@@ -12,38 +12,31 @@ $_SESSION['cpf_nome'];
 
 switch($login){
 
-        case 'ikeda123' :
+    case 'ikeda123' :
         // echo $username ;  echo '<br>';
         $_SESSION['cpf_nome'] =  'cpf : 123456789';
         //echo $cpf;
-        header('location:home.php?');
         break;
 
-        case 'alan456' :
+    case 'alan456' :
         //echo $username ;  echo '<br>';
         $_SESSION['cpf_nome'] = 'cpf : 456789123';
-        header('location:home.php?');
         break;
 
-        case 'helder789' :
+    case 'helder789' :
         //echo $username ;  echo '<br>';
         $_SESSION['cpf_nome'] = 'cpf : 789123456';
-        header('location:home.php?');
         break;
 
-        case 'renan000' :
+    case 'renan000' :
         //echo $username ;  echo '<br>';
         $_SESSION['cpf_nome'] = 'cpf : 000000000';
-        header('location:home.php?');
         break;
-
-
-        default :
-
+    default :
         header('location:index.php?falso='. $falso);
         break;
-
 }
 
+header('location:home.php');
 exit;
 ?>
