@@ -4,7 +4,7 @@ require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
 
 // parametros de entrada
-$username = $_POST['username'];
+$username = $_POST['nome'];
 $password = $_POST['password'];
 $falso    = 0;
 
@@ -15,15 +15,15 @@ $usuario    = phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($usern
 
 if($usuario) {
     // encontrei alguém
-    //echo '<pre>'; print_r($usuario); exit;
+    echo '<pre>'; print_r($usuario); exit;
 
-    $_SESSION['nome']      =    $usuario['nome'];
-    $_SESSION['sobrenome'] =    $usuario['sobrenome'];
-    $_SESSION['cpf']       =    $usuario['cpf'];
-    $_SESSION['tel']       =    $usuario['tel'];
+    //$_SESSION['nome']      =    $usuario['nome'];
+    //$_SESSION['sobrenome'] =    $usuario['sobrenome'];
+    //$_SESSION['cpf']       =    $usuario['cpf'];
+    //$_SESSION['tel']       =    $usuario['tel'];
 
 
-    header('location:home.php?');
+    //header('location:aulas_alan/lista_Usuarios.php?');
 
     // colocar na session as informações do usuário logado
     // redirecionar para home
@@ -35,7 +35,7 @@ if($usuario) {
     // não existe usuario com esses dados no db
     // não deixar entrar
     $falso = 1;
-        header('location:index.php?falso='. $falso);
+    header('location:aulas?alan/index.php?falso='. $falso);
 }
 
 //$inativei = phpLibUsuarios_update_usuarios_inativar(1);
