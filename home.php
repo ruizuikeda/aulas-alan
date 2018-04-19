@@ -1,7 +1,7 @@
 <?php
 session_start();
 $nome = $_SESSION['logado_nome'];
-
+$cpf  = $_SESSION['cpf_nome'];
 ?>
 
 
@@ -12,6 +12,6 @@ $nome = $_SESSION['logado_nome'];
         <title>Home</title>
     </head>
     <body>
-        <h1>Olá, <?php echo $nome; ?></h1>
+        <h1>Olá, <?php echo $nome; echo '<br>'; echo $cpf; ?></h1>
     </body>
 </html>
