@@ -6,31 +6,28 @@ $password = $_POST['password'];
 $login .= $username . $password;
 $falso = 1;
 $_SESSION['logado_nome'] =  $username ;
-$_SESSION['cpf_nome'];
 
-//echo $login;
 
 switch($login){
 
-    case 'ikeda123' :
-        // echo $username ;  echo '<br>';
-        $_SESSION['cpf_nome'] =  'cpf : 123456789';
-        //echo $cpf;
+    case 'ikeda' :
+        if($password == '123') {
+            $_SESSION['cpf'] =  '123456789';
+        } else {
+            header('location:index.php?falso='. $falso);
+        }
         break;
 
     case 'alan456' :
-        //echo $username ;  echo '<br>';
-        $_SESSION['cpf_nome'] = 'cpf : 456789123';
+        $_SESSION['cpf'] = '456789123';
         break;
 
     case 'helder789' :
-        //echo $username ;  echo '<br>';
-        $_SESSION['cpf_nome'] = 'cpf : 789123456';
+        $_SESSION['cpf'] = '789123456';
         break;
 
     case 'renan000' :
-        //echo $username ;  echo '<br>';
-        $_SESSION['cpf_nome'] = 'cpf : 000000000';
+        $_SESSION['cpf'] = '000000000';
         break;
     default :
         header('location:index.php?falso='. $falso);
