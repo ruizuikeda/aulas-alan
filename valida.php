@@ -1,39 +1,28 @@
 <?php
-session_start();
+// incluir o db
+require_once 'include/db.php';
+require_once 'include/phpLib_usuarios.php';
 
+// parametros de entrada
 $username = $_POST['username'];
 $password = $_POST['password'];
-$login .= $username . $password;
-$falso = 1;
-$_SESSION['logado_nome'] =  $username ;
 
 
-switch($login){
+// procurar alguem com esses dados no db
+$usuario    = phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($username, $password);
 
-    case 'ikeda' :
-        if($password == '123') {
-            $_SESSION['cpf'] =  '123456789';
-        } else {
-            header('location:index.php?falso='. $falso);
-        }
-        break;
+if($usuario) {
+    // encontrei alguém
+    echo '<pre>'; print_r($usuario); exit;
 
-    case 'alan456' :
-        $_SESSION['cpf'] = '456789123';
-        break;
+    // colocar na session as informações do usuário logado
 
-    case 'helder789' :
-        $_SESSION['cpf'] = '789123456';
-        break;
+    // redirecionar para home
 
-    case 'renan000' :
-        $_SESSION['cpf'] = '000000000';
-        break;
-    default :
-        header('location:index.php?falso='. $falso);
-        break;
+} else {
+    // não existe usuario com esses dados no db
+    // não deixar entrar
+
 }
 
-header('location:home.php');
-exit;
 ?>
