@@ -6,23 +6,36 @@ require_once 'include/phpLib_usuarios.php';
 // parametros de entrada
 $username = $_POST['username'];
 $password = $_POST['password'];
+$falso    = 0;
 
 
 // procurar alguem com esses dados no db
 $usuario    = phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($username, $password);
 
+
 if($usuario) {
     // encontrei alguém
-    echo '<pre>'; print_r($usuario); exit;
+    //echo '<pre>'; print_r($usuario); exit;
+
+    $_SESSION['nome']      =    $usuario['nome'];
+    $_SESSION['sobrenome'] =    $usuario['sobrenome'];
+    $_SESSION['cpf']       =    $usuario['cpf'];
+    $_SESSION['tel']       =    $usuario['tel'];
+
+
+    header('location:home.php?');
 
     // colocar na session as informações do usuário logado
-
     // redirecionar para home
 
+
 } else {
+
+
     // não existe usuario com esses dados no db
     // não deixar entrar
-
+    $falso = 1;
+        header('location:index.php?falso='. $falso);
 }
 
 ?>

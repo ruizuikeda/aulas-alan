@@ -1,7 +1,14 @@
 <?php
 session_start();
-$nome = $_SESSION['logado_nome'];
-$cpf  = $_SESSION['cpf'];
+
+$nome      = $_SESSION['nome'];
+$sobrenome = $_SESSION['sobrenome'];
+$cpf       = $_SESSION['cpf'];
+$tel       = $_SESSION['tel'];
+
+
+//print_r ($_SESSION);
+
 ?>
 
 
@@ -12,6 +19,9 @@ $cpf  = $_SESSION['cpf'];
         <title>Home</title>
     </head>
     <body>
-        <h1>Olá, <?php echo $nome; echo '<br>'; echo 'cpf: ' . $cpf; ?></h1>
+        <h1> Olá, <?php echo $nome . ' ';  echo $sobrenome;  echo '<br>';
+            echo 'cpf: ' .   $cpf;   echo '<br>';
+            echo 'tel: ' .   $tel;
+            ?></h1>
     </body>
 </html>

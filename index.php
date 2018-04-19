@@ -2,8 +2,6 @@
 $falso = $_GET['falso'];
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
