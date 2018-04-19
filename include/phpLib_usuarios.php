@@ -20,4 +20,32 @@ function phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($login, $se
 
     return $r[0];
 }
+
+
+function phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, $cpf, $idade){
+    $sql = "
+        INSERT INTO usuarios
+        (login, senha, nome, sobrenome, cpf, idade)
+
+        VALUES
+        ('$login', '$senha', '$nome', '$sobrenome', '$cpf', '$idade')
+    ";
+    $result = mysql_query($sql);
+    if(!$result) return false;
+
+    return mysql_insert_id();
+}
+
+
+function phpLibUsuarios_update_usuarios_inativar($idUsuario){
+    $sql = "
+        UPDATE usuarios
+        SET status = 0
+        WHERE idUsuario = '$idUsuario';
+    ";
+    $result = mysql_query($sql);
+    if(!$result) return false;
+    return true;
+}
+
 ?>

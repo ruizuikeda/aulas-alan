@@ -38,4 +38,10 @@ if($usuario) {
         header('location:index.php?falso='. $falso);
 }
 
+//$inativei = phpLibUsuarios_update_usuarios_inativar(1);
+//if(!$inativei) {
+//    header('Location: index.php?msg=Falha ao tentar inativar');
+//    exit;
+//}
+
 ?>
