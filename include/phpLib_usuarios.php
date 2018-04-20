@@ -22,14 +22,15 @@ function phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($login, $se
 }
 
 
-function phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, $cpf, $idade){
+function phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, $cpf, $tel, $idade){
     $sql = "
         INSERT INTO usuarios
         (login, senha, nome, sobrenome, cpf, tel, idade)
 
         VALUES
-        ('$login', '$senha', '$nome', '$sobrenome', '$cpf', '$tel', ' '$idade')
+        ('$login', '$senha', '$nome', '$sobrenome', '$cpf', '$tel',  '$idade')
     ";
+    //return $sql; -----> mostra a linha que estou jogando no banco
     $result = mysql_query($sql);
     if(!$result) return false;
 
@@ -48,7 +49,7 @@ function phpLibUsuarios_update_usuarios_inativar($idUsuario){
     return true;
 }
 
-function phpLibUsuarios_get_usuarios_pegar_usuario_por_iD($idUsuario) {
+function phpLibUsuarios_get_usuarios_pegar_idUsuario_todos($idUsuario_todos) {
     // comando sql que quero executar
     $sql = "
         SELECT *
@@ -76,5 +77,29 @@ function phpLibUsuarios_get_usuarios_pegar_usuario_por_iD($idUsuario) {
     return $r;
 
 }
+
+function phpLibUsuarios_get_usuarios_pegar_usuario_por_id($id_numero) {
+    // comando sql que quero executar
+    $sql = "
+        SELECT *
+        FROM usuarios
+        WHERE idUsuario = '$id_numero' AND status = '1'
+    ";
+    // efetivamente executando no db
+    $result = mysql_query($sql);
+
+    // caso trivial de o cidadão que fez esse sql errou na escrita !!!!!!!
+    if(!$result) return array();
+
+    if(mysql_num_rows($result)>0) {
+        while($row = mysql_fetch_assoc($result)) {
+            $r[] = $row;
+        }
+    } else return array();
+
+    return $r[0];
+
+}
+
 
 ?>

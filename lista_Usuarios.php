@@ -1,8 +1,8 @@
 <?php
 require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
-$idUsuario_todos = phpLibUsuarios_get_usuarios_pegar_usuario_por_iD($idUsuario_todos);  // pega todos os usuarios
-print_r($idUsuario_todos); echo '<br>';
+$idUsuario_todos = phpLibUsuarios_get_usuarios_pegar_idUsuario_todos($idUsuario_todos);  // pega todos os usuarios
+//print_r($idUsuario_todos); echo '<br>';
 
 $qtdusuarios = count($idUsuario_todos);                                                 // conta a quantidade de usuarios
 //echo $qtdusuarios;
