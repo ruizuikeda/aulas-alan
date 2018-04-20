@@ -1,6 +1,34 @@
 <?php
 require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
+$idUsuario_todos = phpLibUsuarios_get_usuarios_pegar_usuario_por_iD($idUsuario_todos);  // pega todos os usuarios
+print_r($idUsuario_todos); echo '<br>';
+
+$qtdusuarios = count($idUsuario_todos);                                                 // conta a quantidade de usuarios
+//echo $qtdusuarios;
+
+
+
+//exit;
+
+// colocar em uma variavel,
+// um array com todos os usuários
+/*
+[
+    [0] => [
+        'idUsurio'  = 1,
+        'nome'      = 'ikeda,
+    ]
+    [1] => [
+        'idUsurio'  = 2,
+        'nome'      = 'alan,
+    ]
+]
+*/
+
+// vc precisa saber o numero de usuarios dentro desse array
+// qtdUsuarios = count(arrayDeUsuarios);
+
 
 
 ?>
@@ -30,7 +58,7 @@ require_once 'include/phpLib_usuarios.php';
 
         <div class="container">
             <div class=" col-xs-2" >
-                <form action="adicionar.php" method="get">
+                <form action="pag_adicionar.php" method="get">
                     <button type="submit" class="btn btn-danger btn-block">Adicionar</button>
                 </form>
             </div>
@@ -45,13 +73,23 @@ require_once 'include/phpLib_usuarios.php';
                     <th>Sobrenome</th>
                     <th>CPF</th>
                     <th>Telefone</th>
+                    <th>Idade</th>
                 </thead>
                 <tbody>
-
-
-
+                    <!-- dentro de um laço que está percorrendo meu array de usuarios -->
+                    <?php for ($i =0; $i < $qtdusuarios; $i++){ ?>
+                    <tr>
+                        <td><?php echo $idUsuario_todos[$i]['login'];  ?></td> <!-- ser preenchido dinamicamente com os dados do usuario atual dentro do laço ($usuario[$i]['login'];) -->
+                        <td><?php echo $idUsuario_todos[$i]['senha'];  ?></td>
+                        <td><?php echo $idUsuario_todos[$i]['nome'];  ?></td>
+                        <td><?php echo $idUsuario_todos[$i]['sobrenome'];  ?></td>
+                        <td><?php echo $idUsuario_todos[$i]['cpf'];  ?></td>
+                        <td><?php echo $idUsuario_todos[$i]['tel'];  ?></td>
+                        <td><?php echo $idUsuario_todos[$i]['idade'];  ?></td>
+                    </tr>
+                    <?php } ?>
+                    <!-- fim do laço -->
                 </tbody>
-
             </table>
         </div>
 

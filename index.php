@@ -1,5 +1,5 @@
 <?php
-//$falso = $_GET['falso'];
+$falso = $_GET['falso'];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
                     Password           <input class="form-control" type="password" id="password" name ="password" required>
                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                 </form>
-                <?php //if ($falso == 1){echo 'Login ou senha incorretos';} ?>
+                <?php if ($falso == 1){echo 'Login ou senha incorretos';} ?>
             </div>
         </div>
 

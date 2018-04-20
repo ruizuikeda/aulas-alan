@@ -25,10 +25,10 @@ function phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($login, $se
 function phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, $cpf, $idade){
     $sql = "
         INSERT INTO usuarios
-        (login, senha, nome, sobrenome, cpf, idade)
+        (login, senha, nome, sobrenome, cpf, tel, idade)
 
         VALUES
-        ('$login', '$senha', '$nome', '$sobrenome', '$cpf', '$idade')
+        ('$login', '$senha', '$nome', '$sobrenome', '$cpf', '$tel', ' '$idade')
     ";
     $result = mysql_query($sql);
     if(!$result) return false;
@@ -46,6 +46,35 @@ function phpLibUsuarios_update_usuarios_inativar($idUsuario){
     $result = mysql_query($sql);
     if(!$result) return false;
     return true;
+}
+
+function phpLibUsuarios_get_usuarios_pegar_usuario_por_iD($idUsuario) {
+    // comando sql que quero executar
+    $sql = "
+        SELECT *
+        FROM usuarios
+    ";
+
+    /*$contador_usuario="
+        SELECT COUNT*
+        FROM usuarios
+    ";*/
+
+    // efetivamente executando no db
+    $result = mysql_query($sql);
+
+
+    // caso trivial de o cidadão que fez esse sql errou na escrita !!!!!!!
+    if(!$result) return array();
+
+    if(mysql_num_rows($result)>0) {
+        while($row = mysql_fetch_assoc($result)) {
+            $r[] = $row;
+        }
+    } else return array();
+
+    return $r;
+
 }
 
 ?>
