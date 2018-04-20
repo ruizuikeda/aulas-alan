@@ -4,9 +4,9 @@ require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
 
 // parametros de entrada
-$username = $_POST['nome'];
+$username = $_POST['username'];
 $password = $_POST['password'];
-$falso    = 0;
+//$falso    = 0;
 
 
 // procurar alguem com esses dados no db
@@ -31,11 +31,11 @@ if($usuario) {
 
 } else {
 
-
+    echo 'vazio'; exit;
     // não existe usuario com esses dados no db
     // não deixar entrar
-    $falso = 1;
-    header('location:aulas?alan/index.php?falso='. $falso);
+    // $falso = 1;
+    // header('location:aulas?alan/index.php?falso='. $falso);
 }
 
 //$inativei = phpLibUsuarios_update_usuarios_inativar(1);

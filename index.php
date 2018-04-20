@@ -1,5 +1,5 @@
 <?php
-$falso = $_GET['falso'];
+//$falso = $_GET['falso'];
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +25,11 @@ $falso = $_GET['falso'];
             <div class="col-xs-offset-4 col-xs-4">
                 <h1 class="title text-center text-primary" >Bem vindo</h1>
                 <form action="action/valida.php" method="post">
-                    Login              <input class="form-control" type="text" id="nome" name="nome" required >
+                    Login              <input class="form-control" type="text"     id="username" name ="username" required >
                     Password           <input class="form-control" type="password" id="password" name ="password" required>
                     <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                 </form>
-                <?php if ($falso == 1){echo 'Login ou senha incorretos';} ?>
+                <?php //if ($falso == 1){echo 'Login ou senha incorretos';} ?>
             </div>
         </div>
 

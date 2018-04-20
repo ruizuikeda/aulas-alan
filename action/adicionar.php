@@ -3,23 +3,27 @@
 require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
 
-$nome  = $_POST['nome'];
-$login = $_POST['login'];
-$senha = $_POST['senha'];
-$cpf   = $_POST['cpf'];
-$tel   = $_POST['tel'];
+$username  = $_POST['username'];
+$senha     = $_POST['senha'];
+$nome      = $_POST['nome'];
+$sobrenome = $_POST['sobrenome'];
+$cpf       = $_POST['cpf'];
+$tel       = $_POST['tel'];
 
-$novo_usuario = phpLibUsuarios_insert_usuarios_novo($nome, $login, $senha, $cpf, $tel);
+phpLibUsuarios_insert_usuarios_novo($username, $senha, $nome, $sobrenome, $cpf, $tel);
 //print_r($novo_usuario);
 
-if($novo_usuario){
-    print_r($novo_usuario);
-    exit;
-    //header('location:pag_adicionar.php?');
-}
+$novo_usuario = phpLibUsuarios_get_usuarios_pegar_usuario_por_login_e_senha($login, $senha);
+
+
+    if(!$novo_usuario){
+        echo 'erro na gravacao';
+        exit;
+        //header('location:pag_adicionar.php?');
+    }
 
 else {
-    $falso = 1;
-    header('location:lista_Usuarios.php?falso='. $falso);
+    print_r($novo_usuario);
+
 }
 ?>

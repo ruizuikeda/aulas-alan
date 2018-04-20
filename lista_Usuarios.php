@@ -39,9 +39,10 @@ require_once 'include/phpLib_usuarios.php';
         <div class="col-xs-offset-3 col-xs-6">
             <table class="table">
                 <thead>
-                    <th>Nome</th>
                     <th>Login</th>
                     <th>Senha</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
                     <th>CPF</th>
                     <th>Telefone</th>
                 </thead>
