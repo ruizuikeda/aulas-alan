@@ -1,13 +1,14 @@
 <?php
 require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
+
 $idUsuario_todos = phpLibUsuarios_get_usuarios_pegar_idUsuario_todos($idUsuario_todos);  // pega todos os usuarios
 //print_r($idUsuario_todos); echo '<br>';
 
-$qtdusuarios = count($idUsuario_todos);                                                 // conta a quantidade de usuarios
+$qtdusuarios = count($idUsuario_todos);                                                  // conta a quantidade de usuarios
 //echo $qtdusuarios;
 
-
+$falso = $_GET['falso'];
 
 //exit;
 
@@ -93,5 +94,11 @@ $qtdusuarios = count($idUsuario_todos);                                         
             </table>
         </div>
 
+        <div class="container">
+            <div class="col-xs-offset-4 col-xs-4">
+                <?php if($falso == 1){echo "Faltou preencher login, senha ou nome";
+                                     }?>
+            </div>
+        </div>
     </body>
 </html>

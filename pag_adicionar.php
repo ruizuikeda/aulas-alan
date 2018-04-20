@@ -25,13 +25,13 @@
             <div class="col-xs-offset-4 col-xs-4">
                 <h1 class="title text-center text-primary" >Adicionar novo usuario</h1>
                 <form action="action/adicionar.php" method="post">
-                    Username        <input class="form-control"     type="text"      id="username"     name ="username"  >
-                    Senha           <input class="form-control"     type="password"  id="senha"        name ="senha" >
+                    Username        <input class="form-control"     type="text"      id="username"     name ="username"   >
+                    Senha           <input class="form-control"     type="password"  id="senha"        name ="senha" required>
                     Nome            <input class="form-control"     type="text"      id="nome"         name ="nome" >
-                    Sobrenome       <input class="form-control"     type="text"      id="sobrenome"    name ="sobrenome" >
-                    CPF             <input class="form-control"     type="number"    id="cpf"          name ="cpf" >
-                    Telefone        <input class="form-control"     type="number"    id="tel"          name ="tel" >
-                    Idade           <input class="form-control"     type="number"    id="idade"        name ="idade" >
+                    Sobrenome       <input class="form-control"     type="text"      id="sobrenome"    name ="sobrenome" required>
+                    CPF             <input class="form-control"     type="number"    id="cpf"          name ="cpf" required>
+                    Telefone        <input class="form-control"     type="number"    id="tel"          name ="tel" required>
+                    Idade           <input class="form-control"     type="number"    id="idade"        name ="idade" required>
                     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
                 </form>
                 <?php //if ($falso == 1){echo 'Login ou senha incorretos';} ?>
