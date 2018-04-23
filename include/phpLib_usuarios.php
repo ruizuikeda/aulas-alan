@@ -101,5 +101,34 @@ function phpLibUsuarios_get_usuarios_pegar_usuario_por_id($id_numero) {
 
 }
 
+/*function phpLibUsuarios_get_conta_usuarios($id_Usuario){
+    $sql = "
+        SELECT COUNT
+        FROM usuarios
+        WHERE idUsuario = '$id_Usuario'
+        "
+        $result = mysql_query($sql);
+
+    // caso trivial de o cidadão que fez esse sql errou na escrita !!!!!!!
+    if(!$result) return array();
+
+    else
+        return $result;
+} */
+
+
+/*function phpLibUsuarios_update_dados_usuario($id_numero, $nome, $sobrenome, $cpf, $tel, $idade){
+    $sql = "
+      UPDATE usuarios
+      SET nome ='$nome', sobrenome = '$sobrenome', cpf ='$cpf', tel ='$tel', idade='$idade'
+      where iDUsuario = '$id_numero' AND status = '1'
+
+    ";
+    $result = mysql_query($sql);[]
+    if(!$result) return false;
+    return true;
+
+}*/
+
 
 ?>

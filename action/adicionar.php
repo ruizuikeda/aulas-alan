@@ -15,13 +15,12 @@ $falso = 0;
 if(!$login ||  !$senha ||   !$nome ){
     $falso = 1;
     header('location:../lista_Usuarios.php?falso=' .$falso);
+    exit;
 
 }
 
 $id_numero = phpLibUsuarios_insert_usuarios_novo($login, $senha, $nome, $sobrenome, $cpf, $tel, $idade);
 $novo_usuario = phpLibUsuarios_get_usuarios_pegar_usuario_por_id($id_numero);
-
-//print_r ($id_numero);
 
 
 if ($id_numero <= 0){
@@ -31,15 +30,6 @@ if ($id_numero <= 0){
 }
 
 else{
-    header('location:../lista_Usuarios.php?');
-
-    //print_r($novo_usuario);
-    //var_dump($novo_usuario);
-    //exit;
+    header('location:../lista_Usuarios.php');
 }
-
-
-
-
-
 ?>

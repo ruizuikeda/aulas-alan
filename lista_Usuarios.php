@@ -3,34 +3,10 @@ require_once 'include/db.php';
 require_once 'include/phpLib_usuarios.php';
 
 $idUsuario_todos = phpLibUsuarios_get_usuarios_pegar_idUsuario_todos($idUsuario_todos);  // pega todos os usuarios
-//print_r($idUsuario_todos); echo '<br>';
 
 $qtdusuarios = count($idUsuario_todos);                                                  // conta a quantidade de usuarios
-//echo $qtdusuarios;
 
 $falso = $_GET['falso'];
-
-//exit;
-
-// colocar em uma variavel,
-// um array com todos os usuários
-/*
-[
-    [0] => [
-        'idUsurio'  = 1,
-        'nome'      = 'ikeda,
-    ]
-    [1] => [
-        'idUsurio'  = 2,
-        'nome'      = 'alan,
-    ]
-]
-*/
-
-// vc precisa saber o numero de usuarios dentro desse array
-// qtdUsuarios = count(arrayDeUsuarios);
-
-
 
 ?>
 
@@ -75,6 +51,7 @@ $falso = $_GET['falso'];
                     <th>CPF</th>
                     <th>Telefone</th>
                     <th>Idade</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <!-- dentro de um laço que está percorrendo meu array de usuarios -->
@@ -87,6 +64,9 @@ $falso = $_GET['falso'];
                         <td><?php echo $idUsuario_todos[$i]['cpf'];  ?></td>
                         <td><?php echo $idUsuario_todos[$i]['tel'];  ?></td>
                         <td><?php echo $idUsuario_todos[$i]['idade'];  ?></td>
+                        <td>
+                            <a href="pag_adicionar.php?idUsuario=<?php echo $idUsuario_todos[$i]['idUsuario'];  ?>" type="button" role="button" class="btn btn-block btn-warning">editar</a>
+                        </td>
                     </tr>
                     <?php } ?>
                     <!-- fim do laço -->
@@ -96,8 +76,8 @@ $falso = $_GET['falso'];
 
         <div class="container">
             <div class="col-xs-offset-4 col-xs-4">
-                <?php if($falso == 1){echo "Faltou preencher login, senha ou nome";
-                                     }?>
+                <h3><?php if($falso == 1){echo "Faltou preencher login, senha ou nome";
+                                         }?></h3>
             </div>
         </div>
     </body>
