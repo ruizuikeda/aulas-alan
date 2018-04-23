@@ -35,14 +35,14 @@ exit; */
                 <h1 class="title text-center text-primary" >Adicionar</h1>
                 <?php if(isset($usuario)){ ?>
                 <form action="action/adicionar.php" method="post">
-                    Username        <input class="form-control"     type="text"      id="username"     name ="username" required   value="<?php echo $usuario['login']; ?>">
-                    Senha           <input class="form-control"     type="password"  id="senha"        name ="senha" required      value="<?php echo $usuario['senha']; ?>">
-                    Nome            <input class="form-control"     type="text"      id="nome"         name ="nome" required       value="<?php echo $usuario['nome']; ?>">
-                    Sobrenome       <input class="form-control"     type="text"      id="sobrenome"    name ="sobrenome" required  value="<?php echo $usuario['sobrenome']; ?>">
-                    CPF             <input class="form-control"     type="number"    id="cpf"          name ="cpf" required        value="<?php echo $usuario['cpf']; ?>">
-                    Telefone        <input class="form-control"     type="number"    id="tel"          name ="tel" required        value="<?php echo $usuario['tel']; ?>">
-                    Idade           <input class="form-control"     type="number"    id="idade"        name ="idade" required      value="<?php echo $usuario['idade']; ?>">
-                                    <input type="hidden"            type="text"      id="idUsuario"    name ="idUsuario"           value="<?php echo $usuario['idUsuario']; ?>">
+                    Username        <input class="form-control"     type="text"      id="username"     name ="username"    value="<?php echo $usuario['login']; ?>"     required>
+                    Senha           <input class="form-control"     type="password"  id="senha"        name ="senha"       value="<?php echo $usuario['senha']; ?>"     required>
+                    Nome            <input class="form-control"     type="text"      id="nome"         name ="nome"        value="<?php echo $usuario['nome']; ?>"      required>
+                    Sobrenome       <input class="form-control"     type="text"      id="sobrenome"    name ="sobrenome"   value="<?php echo $usuario['sobrenome']; ?>" required>
+                    CPF             <input class="form-control"     type="number"    id="cpf"          name ="cpf"         value="<?php echo $usuario['cpf']; ?>"       required>
+                    Telefone        <input class="form-control"     type="number"    id="tel"          name ="tel"         value="<?php echo $usuario['tel']; ?>"       required>
+                    Idade           <input class="form-control"     type="number"    id="idade"        name ="idade"       value="<?php echo $usuario['idade']; ?>"     required>
+                                    <input type="hidden"            type="text"      id="idUsuario"    name ="idUsuario"   value="<?php echo $usuario['idUsuario']; ?>">
                     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
                 </form>
                 <?php }?>
