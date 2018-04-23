@@ -42,6 +42,7 @@ exit; */
                     CPF             <input class="form-control"     type="number"    id="cpf"          name ="cpf" required        value="<?php echo $usuario['cpf']; ?>">
                     Telefone        <input class="form-control"     type="number"    id="tel"          name ="tel" required        value="<?php echo $usuario['tel']; ?>">
                     Idade           <input class="form-control"     type="number"    id="idade"        name ="idade" required      value="<?php echo $usuario['idade']; ?>">
+                                    <input type="hidden"            type="text"      id="idUsuario"    name ="idUsuario"           value="<?php echo $usuario['idUsuario']; ?>">
                     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
                 </form>
                 <?php }?>
